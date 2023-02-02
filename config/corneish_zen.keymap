@@ -57,7 +57,7 @@
                         bindings = <
    &sl 2 &kp Q &kp W &kp E &ht LS(RA(R)) R &kp T    	&kp Y &kp U &kp I    &ht RA(G) O   &kp P     &kp LBKT
    &mt LALT NUBS &kp A &kp S &kp D &kp F &kp G    	&kp H &kp J &kp K    &kp L   &kp SEMI  &kp SQT
-   &mo 1 &kp Z &kp X &kp C &kp V &kp B    	&kp N &ht RA(NUBS) M &kp COMMA &kp DOT &kp FSLH &kp RBKT
+   &mo 1 &kp Z &kp X &kp C &kp V &kp B    	&kp N &ht RA(NUBS) M &kp COMMA &kp DOT &kp FSLH &kp BSLH
              &mt LCTRL CAPS &sk RALT &sk LSHFT    	&kp SPACE  &kp BSPC &kp ENTER
                         >;
                 };
