@@ -48,7 +48,7 @@
 //    | NUMPAD |  K  |  Y  |  È  |  .  |  W  |   |  G  |  C   |  M  |  H  |  V  |  Z  |
 //               | CTRL+CAPS | GRALT | LSHFT |   | SPC | BKSP | ENTER |
                         bindings = <
-   &sl 2 &kp Q &kp W &kp E &ht LS(RA(R) R &kp T    	&kp Y &kp U &kp I    &ht RA(G) O   &kp P     &kp LBKT
+   &sl 2 &kp Q &kp W &kp E &ht LS(RA(R)) R &kp T    	&kp Y &kp U &kp I    &ht RA(G) O   &kp P     &kp LBKT
    &mt LALT NUBS &kp A &kp S &kp D &kp F &kp G    	&kp H &kp J &kp K    &kp L   &kp SEMI  &kp SQT
    &mo 1 &kp Z &kp X &kp C &kp V &kp B    	&ht RA(G) N &kp M &kp COMMA &kp DOT &kp FSLH &kp RBKT
              &mt LCTRL CAPS &sk RALT &sk LSHFT    	&ht RA(SPC) SPC &kp BSPC &kp ENTER
