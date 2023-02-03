@@ -57,8 +57,8 @@
                         bindings = <
    &sl 2 &kp Q &kp W &kp E &ht LS(RA(R)) R &kp T    	&kp Y &kp U &kp I    &ht RA(G) O   &kp P     &kp LBKT
    &mt LALT NUBS &kp A &kp S &kp D &kp F &kp G    	&kp H &kp J &kp K    &kp L   &kp SEMI  &kp SQT
-   &mo 1 &kp Z &kp X &kp C &kp V &kp B    	&ht (RBTK) N &ht RA(NUBS) M &kp COMMA &kp DOT &kp FSLH &kp BSLH
-             &mt LCTRL CAPS &sk RALT &sk LSHFT    	&kp SPACE  &ht (DEL) BSPC &kp ENTER
+   &mo 1 &kp Z &kp X &kp C &kp V &kp B    	&kp RBTK &ht RA(NUBS) M &kp COMMA &kp DOT &kp FSLH &kp BSLH
+             &mt LCTRL CAPS &sk RALT &sk LSHFT    	&kp SPACE  &ht DEL BSPC &kp ENTER
                         >;
                 };
 				
@@ -72,7 +72,7 @@
                         bindings = < 
    &trans  &kp PG_UP &kp HOME  &kp UP       &kp END   &kp ESC       &kp KP_EQUAL    &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_N0    &kp N4
    &trans &kp PG_DN &kp LEFT  &kp DOWN     &kp RIGHT &kp PSCRN   &kp KP_ASTERISK &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_SLASH  &kp N7
-   &trans &kp LWIN  &kp LC(C) &kp LC(HASH) &kp LC(U) &kp TAB     &kp KP_PLUS    &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_MINUS &kp KP_DOT
+   &trans &kp LWIN  &kp LS(DEL) &kp LC(INSERT) &kp LS(INSERT) &kp TAB     &kp KP_PLUS    &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_MINUS &kp KP_DOT
                                          &trans &trans &trans    &trans &trans &trans
                         >;
                 };
