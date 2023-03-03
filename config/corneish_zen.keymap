@@ -59,14 +59,14 @@
                 default_layer {
                         label = "DEFAULT";
 // ------------------------------------------------------------------------------------------
-//    | NUMROW |  À  |  É  |  O  |  Q  |  B  |   |  F  |  D   |  L  |  ’  |  J  |  X  |
-//    |   Ê    |  A  |  I  |  E  |  U  |  ,  |   |  P  |  T   |  S  |  R  |  N  |  ^  |
-//    | NUMPAD |  K  |  Y  |  È  |  .  |  W  |   | G/Q | C/Ç  |  M  |  H  |  V  |  Z  |
-//               | CTRL+CAPS | GRALT | LSHFT |   | SPC | BKSP | ENTER |
+//    | ESC |  À  |  É  |  O  |  Q  |  B  |   |  F  |  D   |  L  |  ’  |  J  |  X  |
+//    |  Ê  |  A  |  I  |  E  |  U  |  ,  |   |  P  |  T   |  S  |  R  |  N  |  ^  |
+//    | TAB |  K  |  Y  |  È  |  .  |  W  |   | G/Q | C/Ç  |  M  |  H  |  V  |  Z  |
+//               | CAPS | ROW | PAD |   | SPC | BKSP | ENTER |
                         bindings = <
-//   &kp NUBS &hm LALT A &hm LCTRL S &hm RALT D &hm LSHFT F &kp G  &kp H &hm LSHFT J &hm GRALT K    &hm LCTRL L   &hm LALT SEMI  &kp SQT
+//   &kp NUBS &hm LALT A &hm LCTRL S &hm RALT D &hm LSHFT F &kp G  &kp H &hm LSHFT J &hm RALT K    &hm LCTRL L   &hm LALT SEMI  &kp SQT
    &kp ESC &kp Q &kp W &kp E &ht LS(RA(R)) R &kp T    	&kp Y &kp U &kp I    &ht RA(G) O   &kp P     &kp LBKT
-   &kp NUBS &hm LALT A &hm LCTRL S &hm RALT D &hm LSHFT F &kp G   &kp KP_ASTERISK &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_SLASH  &kp N7
+   &kp NUBS &hm LALT A &hm LCTRL S &hm RALT D &hm LSHFT F &kp G   &kp H &hm LSHFT J &hm RALT K    &hm LCTRL L   &hm LALT SEMI  &kp SQT
    &kp TAB &kp Z &kp X &kp C &kp V &kp B    	&ht RBKT N &ht RA(NUBS) M &kp COMMA &kp DOT &kp FSLH &kp BSLH
              &kp CAPS &mo NUMROW &mo NUMPAD    	&kp SPACE  &ht DEL BSPC &kp ENTER
                         >;
