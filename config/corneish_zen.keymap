@@ -62,26 +62,26 @@
 //    | ESC |  À  |  É  |  O  |  Q  |  B  |   |  F  |  D   |  L  |  ’  |  J  |  X  |
 //    |  Ê  |  A  |  I  |  E  |  U  |  ,  |   |  P  |  T   |  S  |  R  |  N  |  ^  |
 //    | TAB |  K  |  Y  |  È  |  .  |  W  |   | G/Q | C/Ç  |  M  |  H  |  V  |  Z  |
-//               | CAPS | ROW | PAD |   | SPC | BKSP | ENTER |
+//               | CAPS | PAD | ROW |   | SPC | BKSP | ENTER |
                         bindings = <
    &kp ESC &kp Q &kp W &kp E &ht LS(RA(R)) R &kp T    	&kp Y &kp U &kp I    &ht RA(G) O   &kp P     &kp LBKT
    &kp NUBS &hm LALT A &hm LCTRL S &hm RALT D &hm LSHFT F &kp G   &kp H &hm LSHFT J &hm RALT K    &hm LCTRL L   &hm LALT SEMI  &kp SQT
    &kp TAB &kp Z &kp X &kp C &kp V &kp B    	&ht RBKT N &ht RA(NUBS) M &kp COMMA &kp DOT &kp FSLH &kp BSLH
-             &kp CAPS &mo NUMROW &mo NUMPAD    	&kp SPACE  &ht DEL BSPC &kp ENTER
+             &kp CAPS &mo NUMPAD &mo NUMROW    	&kp SPACE  &ht DEL BSPC &kp ENTER
                         >;
                 };
 				
                 numpad_layer {
                         label = "NUMPAD";
 // -----------------------------------------------------------------------------------------
-//                   | NUMROW | PUP | HOME|  ↑  | END | ESC |   |  =  |  7   |  8  |  9  |  0  |  (  |
-//                   | Ê+ALT  | PDN |  ←  |  ↓  |  →  | PSCN|   |  *  |  4   |  5  |  6  |  /  |  )  |
-//                   | DEFAULT| WIN | CUT | CPY | PST | TAB |   |  +  |  1   |  2  |  3  |  -  |  .  |
-//                              | CTRL+CAPS | GRALT | LSHFT |   | SPC | BKSP | ENTER |
+//                   | NUMROW | PUP | HOME|  ↑  | END |   B   |   |  =  |  7   |  8  |  9  |  0  |  (  |
+//                   | Ê+ALT  | PDN |  ←  |  ↓  |  →  |   ,   |   |  *  |  4   |  5  |  6  |  /  |  )  |
+//                   | DEFAULT| WIN | CUT | CPY | PST | PSCRN |   |  +  |  1   |  2  |  3  |  -  |  .  |
+//                                | CTRL+CAPS | GRALT | LSHFT |   | SPC | BKSP | ENTER |
                         bindings = < 
-   &trans  &kp PG_UP &kp HOME  &kp UP       &kp END   &kp ESC       &kp KP_EQUAL    &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_N0    &kp N4
-   &trans &kp PG_DN &kp LEFT  &kp DOWN     &kp RIGHT &kp PSCRN   &kp KP_ASTERISK &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_SLASH  &kp N7
-   &trans &kp LWIN  &kp LS(DEL) &kp LC(INSERT) &kp LS(INSERT) &kp TAB     &kp KP_PLUS    &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_MINUS &kp KP_DOT
+   &trans  &kp PG_UP &kp HOME  &kp UP       &kp END   &trans       &kp KP_EQUAL    &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_N0    &kp N4
+   &trans &kp PG_DN &kp LEFT  &kp DOWN     &kp RIGHT &trans   &kp KP_ASTERISK &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_SLASH  &kp N7
+   &trans &kp LWIN  &kp LS(DEL) &kp LC(INSERT) &kp LS(INSERT) &kp PSCRN     &kp KP_PLUS    &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_MINUS &kp KP_DOT
                                          &trans &trans &trans    &trans &trans &trans
                         >;
                 };
