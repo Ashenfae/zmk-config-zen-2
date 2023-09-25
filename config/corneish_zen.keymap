@@ -29,52 +29,6 @@
 /* Cool down after typing before home row mods can be used */
 #define HOME_ROW_MODS_QUICK_TAP_MS 250
 
-/*****************************************************************************/
-                            /* Home Row Mods */
-/*****************************************************************************/
-
-/* "Timerless" home row mod Hold-Tap using defined timers */
-#define HOME_ROW_MOD(NAME, KEY_POSITIONS) \
-    BALANCED_HOLD_TAP(NAME, \
-        tapping-term-ms = <HOME_ROW_MODS_TAPPING_TERM_MS>;  /* Mouse usage */ \
-        quick-tap-ms = <HOME_ROW_MODS_QUICK_TAP_MS>;  /* Typing cool down */ \
-        global-quick-tap;  /* Lockout when typing quickly */ \
-        hold-trigger-key-positions = <KEY_POSITIONS>;  /* Use other hand */ \
-        hold-trigger-on-release;  /* Enable chording mods */ \
-        bindings = <&kp>, <&kp>; \
-    )
-
-/* Left hand key positions for use with right hand mods */
-#define LEFT_HAND_KEYS \
-    /*    ┌────┬────┬────┬────┬────┐                                       */ \
-            0    1    2    3    4     5                                       \
-    /*    ├────┼────┼────┼────┼────┼────┐                                  */ \
-            12   13   14   15   16   17                                      \
-    /*    ├────┼────┼────┼────┼────┼────┤                                  */ \
-            24   25   26   27   28   29                                       \
-    /*    ├────┼────┼────┼────┼────┼────┤                                  */ \
-  
-
-/* Right hand key positions for use with left hand mods */
-#define RIGHT_HAND_KEYS \
-    /*                                          ┌────┬────┬────┬────┬────┐ */ \
-                                             6     7    8    9   10   11      \
-    /*                                     ┌────┼────┼────┼────┼────┼────┤ */ \
-                                             18   19   20   21   22   23      \
-    /*                                     ├────┼────┼────┼────┼────┼────┤ */ \
-                                             30   31   32   33   34   35      \
-    /*                                     ├────┼────┼────┼────┼────┼────┤ */ \
-    
-
-/* Thumb key positions for use with mods on both hands */
-#define THUMB_KEYS \
-    /*                 ┌────┬────┬────┐      ┌────┬────┬────┐              */ \
-                         36   37   38          39   40   41                   \
-    /*                 ├────┼────┼────┤      ├────┼────┼────┤              */ \
-   
-
-HOME_ROW_MOD(lh_hr_mt, RIGHT_HAND_KEYS THUMB_KEYS)  /* Left hand */
-HOME_ROW_MOD(rh_hr_mt, LEFT_HAND_KEYS THUMB_KEYS)  /* Right hand */
 
 / {
 	 behaviors {
@@ -110,7 +64,7 @@ HOME_ROW_MOD(rh_hr_mt, LEFT_HAND_KEYS THUMB_KEYS)  /* Right hand */
 //                     | CAPS | PAD | ROW |   | SPC | BKSP | ENTER |
                         bindings = <
    &kp ESC &kp Q &kp W &kp E &ht LS(RA(R)) R &kp T    	&kp Y &kp U &kp I    &ht RA(G) O   &kp P     &kp LBKT
-   &kp NUBS &lh_hr_mt LALT A &lh_hr_mt LCTRL S &lh_hr_mt RALT D &lh_hr_mt LSHFT F &kp G   &kp H &rh_hr_mt LSHFT J &rh_hr_mt RALT K    &rh_hr_mt LCTRL L   &rh_hr_mt LALT SEMI  &kp SQT
+   &kp NUBS &hm LALT A &hm LCTRL S &hm RALT D &hm LSHFT F &kp G   &kp H &hm LSHFT J &hm RALT K    &hm LCTRL L   &hm LALT SEMI  &kp SQT
    &kp TAB &kp Z &kp X &kp C &kp V &kp B    	&ht RBKT N &ht RA(NUBS) M &kp COMMA &kp DOT &kp FSLH &kp BSLH
              &mt RALT CAPS &mo NUMPAD &mo NUMROW    	&kp SPACE  &ht DEL BSPC &kp ENTER
                         >;
@@ -140,7 +94,7 @@ HOME_ROW_MOD(rh_hr_mt, LEFT_HAND_KEYS THUMB_KEYS)  /* Right hand */
 //                                    |CAPS | PAD | ROW |   | SPC | BKSP | ENTER |
                         bindings = <
    &kp F1    &kp F2 &kp F3     &kp F4     &kp F5   &kp F6    &kp F7 &kp F8        &kp F9        &kp F10   &kp F11 &kp F12
-   &kp GRAVE &lh_hr_mt LALT N1 &lh_hr_mt LCTRL N2     &lh_hr_mt RALT N3    &lh_hr_mt LSHFT N4   &kp N5    &kp N6 &rh_hr_mt LSHFT N7        &rh_hr_mt RALT N8        &rh_hr_mt LCTRL N9    &rh_hr_mt LALT N0  &kp MINUS
+   &kp GRAVE &hm LALT N1 &hm LCTRL N2     &hm RALT N3    &hm LSHFT N4   &kp N5    &kp N6 &hm LSHFT N7        &hm RALT N8        &hm LCTRL N9    &hm LALT N0  &kp MINUS
    &kp C_PREV &kp C_NEXT &kp C_PP &kp C_VOL_UP  &kp C_VOL_DN  &kp C_MUTE  &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3   &kp EQUAL
                                      &trans &trans &trans    &trans &trans &trans
 		 >;
