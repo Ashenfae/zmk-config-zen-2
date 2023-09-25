@@ -76,7 +76,7 @@
 			tapping-term-ms = <150>;
 			quick_tap_ms = <0>;
 			flavor = "tap-preferred";
-			bindings = <&sl_sentence_case SENTENCE_ALT>, <&kp CAPS>;
+			bindings = <&sl_sentence_case>, <&kp>;
 		};
 		lh_hm: left_hand_homerow_mods {
 			compatible = "zmk,behavior-hold-tap";
@@ -242,7 +242,7 @@
   &trans &kp LS(Q) &kp LS(W) &kp LS(E) &kp LS(R) &kp LS(T)   &kp LS(Y) &kp LS(U) &kp LS(I) &trans &kp LS(P) &kp LS(LBKT)
   &kp LS(NUBS) &kp LS(A) &kp LS(S) &kp LS(D) &kp LS(F) &trans  &kp LS(H) &kp LS(J) &kp LS(K) &kp LS(L) &kp LS(SEMI) &trans
   &trans &kp LS(Z) &kp LS(X) &kp LS(C) &trans &kp LS(B)   &ht LS(RBKT) LS(N) &ht LS(RA(NUBS)) LS(M) &kp LS(COMMA) &kp LS(DOT) &kp LS(FSLH) &kp LS(BSLH)
-            &ralt_sentence_case &trans &trans         &kp K_CANCEL &trans &enter_sentence_case
+            &ralt_sentence_case SENTENCE_CASE CAPS &trans &trans         &kp K_CANCEL &trans &enter_sentence_case
                        >;
 	};
 	
