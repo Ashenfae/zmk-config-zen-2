@@ -75,7 +75,7 @@
 				quick-tap-ms = <250>;
 				global-quick-tap;
 				flavor = "balanced";
-				hold-trigger-key-positions = RIGHT_HAND_KEYS THUMB_KEYS;
+				hold-trigger-key-positions = <RIGHT_HAND_KEYS THUMB_KEYS>;
 				hold-trigger-on-release;
 				bindings = <&kp>, <&kp>;
 			};
