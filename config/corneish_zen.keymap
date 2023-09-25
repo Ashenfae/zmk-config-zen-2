@@ -10,8 +10,11 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define DEFAULT 0
-#define NUMPAD 1
-#define NUMROW 2
+#define SENTENCE_CASE 1
+#define SENTENCE_ALT 2
+#define END_SENTENCE 3
+#define NUMPAD 4
+#define NUMROW 5
 
 / {
   chosen {
@@ -110,6 +113,30 @@
              &mt RALT CAPS &mo NUMPAD &mo NUMROW    	&kp SPACE  &ht DEL BSPC &kp ENTER
                         >;
                 };
+                
+                SentenceCase {
+	    label = "SENTENCE_CASE";
+  &trans &kp LS(Q) &kp LS(W) &kp LS(E) &kp LS(R) &kp LS(T)   &kp LS(Y) &kp LS(U) &kp LS(I) &trans &kp LS(P) &kp LS(LBKT)
+  &kp LS(NUBS) &kp LS(A) &kp LS(S) &kp LS(D) &kp LS(F) &trans  &kp LS(H) &kp LS(J) &kp LS(K) &kp LS(L) &kp LS(SEMI) &trans
+            &trans &trans &trans         &kp K_CANCEL &trans &trans
+                       >;
+	};
+	
+                SentenceALT {
+	    label = "SENTENCE_ALT";
+  &trans &kp LS(Q) &kp LS(W) &kp LS(E) &kp LS(R) &kp LS(T)   &kp LS(Y) &kp LS(U) &kp LS(I) &trans &kp LS(P) &kp LS(LBKT)
+  &kp LS(NUBS) &kp LS(A) &kp LS(S) &kp LS(D) &kp LS(F) &trans  &kp LS(H) &kp LS(J) &kp LS(K) &kp LS(L) &kp LS(SEMI) &trans
+            &trans &trans &trans         &kp K_CANCEL &trans &trans
+                       >;
+	};
+	
+                EndSentence {
+	    label = "END_SENTENCE";
+  &trans &kp LS(Q) &kp LS(W) &kp LS(E) &kp LS(R) &kp LS(T)   &kp LS(Y) &kp LS(U) &kp LS(I) &trans &kp LS(P) &kp LS(LBKT)
+  &kp LS(NUBS) &kp LS(A) &kp LS(S) &kp LS(D) &kp LS(F) &trans  &kp LS(H) &kp LS(J) &kp LS(K) &kp LS(L) &kp LS(SEMI) &trans
+            &trans &trans &trans         &kp K_CANCEL &trans &trans
+                       >;
+	};
 				
                 numpad_layer {
                         label = "NUMPAD";
