@@ -103,6 +103,42 @@
 			quick-release;  /* Release as soon as another key is pressed */ 
 			/delete-property/ ignore-modifiers;  /* Mods release Sticky Layer */ 
 		};
+		excumflex: excumflex {
+			compatible = "zmk,behavior-mod-morph";
+			label = "EXCUMFLEX";
+			#binding-cells = <0>;
+			bindings = <&kp SQT>, <&excl_end_sentence>;
+			mods = <(MOD_LSFT)>;
+		};
+		questionstrophe: questionstrophe {
+			compatible = "zmk,behavior-mod-morph";
+			label = "QUESTIONSTROPHE";
+			#binding-cells = <0>;
+			bindings = <&kp O>, <&question_end_sentence>;
+			mods = <(MOD_LSFT)>;
+			keep-mods = <(MOD_LSFT)>;
+		};
+		dotone: dot_one {
+			compatible = "zmk,behavior-mod-morph";
+			label = "DOT_ONE";
+			#binding-cells = <0>;
+			bindings = <&dot_end_sentence>, <&dottwo>;
+			mods = <(MOD_LSFT|MOD_RALT)>;
+		};
+		dottwo: dot_two {
+			compatible = "zmk,behavior-mod-morph";
+			label = "DOT_TWO";
+			#binding-cells = <0>;
+			bindings = <&kp RA(V)>, <&ellips>;
+			mods = <(MOD_LSFT)>;
+		};
+		ellips: ellips {
+			compatible = "zmk,behavior-mod-morph";
+			label = "ELLIPS";
+			#binding-cells = <0>;
+			bindings = <&kp LS(V)>, <&ellips_end_sentence>;
+			mods = <(MOD_RALT)>;
+		};		
 	};
 	
 	macros {
