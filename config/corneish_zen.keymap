@@ -18,19 +18,7 @@
     zmk,matrix_transform = &default_transform;
     //zmk,matrix_transform = &five_column_transform;
   };
-};
 
-&sk {
-	release-after-ms = <2000>;
-};
-
-&sl {
-	release-after-ms = <2000>;
-};
-
-&mt {
-    tapping-term-ms = <150>;
-};
 
 / {
 	 behaviors {
