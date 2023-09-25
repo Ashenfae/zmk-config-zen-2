@@ -227,9 +227,9 @@
 //    | TAB |  Z  |  Y  |  È  |  .  |  K  |   | G/Q | C/Ç  |  M  |  H  |  V  |  X  |
 //                     | CAPS | PAD | ROW |   | SPC | BKSP | ENTER |
                         bindings = <
-   &kp ESC &kp Q &kp W &kp E &ht LS(RA(R)) R &kp T    	&kp Y &kp U &kp I    &ht RA(G) O   &kp P     &kp LBKT
-   &kp NUBS &lh_hm LALT A &lh_hm LCTRL S &lh_hm RALT D &lh_hm LSHFT F &kp G   &kp H &rh_hm LSHFT J &rh_hm RALT K    &rh_hm LCTRL L   &rh_hm LALT SEMI  &kp SQT
-   &kp TAB &kp Z &kp X &kp C &kp V &kp B    	&ht RBKT N &ht RA(NUBS) M &kp COMMA &kp DOT &kp FSLH &kp BSLH
+   &kp ESC &kp Q &kp W &kp E &ht LS(RA(R)) R &kp T    	&kp Y &kp U &kp I    &questionstrophe   &kp P     &kp LBKT
+   &kp NUBS &lh_hm LALT A &lh_hm LCTRL S &lh_hm RALT D &lh_hm LSHFT F &kp G   &kp H &rh_hm LSHFT J &rh_hm RALT K    &rh_hm LCTRL L   &rh_hm LALT SEMI  &excumflex
+   &kp TAB &kp Z &kp X &kp C &dotone &kp B    	&ht RBKT N &ht RA(NUBS) M &kp COMMA &kp DOT &kp FSLH &kp BSLH
              &mt RALT CAPS &mo NUMPAD &mo NUMROW    	&kp SPACE  &ht DEL BSPC &kp ENTER
                         >;
                 };
