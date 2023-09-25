@@ -109,7 +109,7 @@
 		dot_end_sentence: dot_end_sentence {
 			label = "dot_end_sentence";
 			compatible = "zmk,behavior-macro";
-			#binding-cells = <1>;
+			#binding-cells = <0>;
 			wait-ms = <0>;
 			tap-ms = <0>;
 			bindings = <&macro_press &kp V>,
