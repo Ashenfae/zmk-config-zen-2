@@ -32,24 +32,7 @@
 				bindings = <&kp>, <&kp>;
 			};
 			
-			skq: sticky_key_quick_release {
-				compatible = "zmk,behavior-sticky-key";
-				label = "STICKY_KEY_QUICK_RELEASE";
-				#binding-cells = <1>;
-				bindings = <&kp>;
-				release-after-ms = <200>;
-				quick-release;
-				ignore-modifiers;
-				};
 			
-			lm: layer_mod {
-				compatible = "zmk,behavior-hold-tap";
-				label = "HOLD_TAP";
-				#binding-cells = <2>;
-				tapping-term-ms = <150>;
-				flavor = "hold-preferred";
-				bindings = <&mo>, <&kp>;
-				
 			 hm: homerow_mods {
 				compatible = "zmk,behavior-hold-tap";
 				label = "HOMEROW_MODS";
@@ -74,7 +57,7 @@
    &kp ESC &kp Q &kp W &kp E &ht LS(RA(R)) R &kp T    	&kp Y &kp U &kp I    &ht RA(G) O   &kp P     &kp LBKT
    &kp NUBS &hm LALT A &hm LCTRL S &hm RALT D &hm LSHFT F &kp G   &kp H &hm LSHFT J &hm RALT K    &hm LCTRL L   &hm LALT SEMI  &kp SQT
    &kp TAB &kp Z &kp X &kp C &kp V &kp B    	&ht RBKT N &ht RA(NUBS) M &kp COMMA &kp DOT &kp FSLH &kp BSLH
-             &kp CAPS &lm NUMPAD RALT &lm NUMROW LSHIFT   	&kp SPACE  &ht DEL BSPC &kp ENTER
+             &mt RALT CAPS &mo NUMPAD &mo NUMROW    	&kp SPACE  &ht DEL BSPC &kp ENTER
                         >;
                 };
 				
