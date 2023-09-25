@@ -128,7 +128,7 @@
 	    label = "SENTENCE_ALT";
 	     bindings = <
   &trans &kp LS(RA(Q)) &kp LS(W) &kp LSRA((E)) &kp LS(R) &kp LS(T)   &kp LS(Y) &kp LS(U) &kp LS(I) &trans &kp LS(P) &kp LS(LBKT)
-  &kp LS(RA(NUBS)) &kp LS(RA(A)) &kp LS(S) &kp LS(D) &kp LS(F) &trans  &kp LS(H) &kp LS(J) &kp LS(K) &kp LS(L) &kp LS(SEMI) &trans
+//  &kp LS(RA(NUBS)) &kp LS(RA(A)) &kp LS(S) &kp LS(D) &kp LS(F) &trans  &kp LS(H) &kp LS(J) &kp LS(K) &kp LS(L) &kp LS(SEMI) &trans
   &trans &kp LS(Z) &kp LS(X) &kp LS(C) &trans &kp LS(B)   &ht LS(RBKT) LS(N) &ht LS(RA(NUBS)) LS(M) &kp LS(COMMA) &kp LS(DOT) &kp LS(FSLH) &kp LS(BSLH)
             &trans &trans &trans         &kp K_CANCEL &trans &trans
                        >;
