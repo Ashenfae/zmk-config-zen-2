@@ -73,7 +73,6 @@
 				#binding-cells = <2>;
 				tapping-term-ms = <300>;
 				quick-tap-ms = <250>;
-				global-quick-tap;
 				flavor = "balanced";
 				hold-trigger-key-positions = <RIGHT_HAND_KEYS THUMB_KEYS>;
 				hold-trigger-on-release;
