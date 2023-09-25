@@ -72,6 +72,9 @@
         bindings = <&kp>, <&kp>; \
     )
 
+HOME_ROW_MOD(lh_hr_mt, RIGHT_HAND_KEYS THUMB_KEYS)  /* Left hand */
+HOME_ROW_MOD(rh_hr_mt, LEFT_HAND_KEYS THUMB_KEYS)  /* Right hand */
+
 
 / {
 	 behaviors {
