@@ -21,84 +21,6 @@
 };
 
 
-/*****************************************************************************/
-                                /* Timers */
-/*****************************************************************************/
-/* How long to hold to activate home row mods for same side or mouse usage */
-#define HOME_ROW_MODS_TAPPING_TERM_MS 300
-
-/* Cool down after typing before home row mods can be used */
-#define HOME_ROW_MODS_QUICK_TAP_MS 250
-
-/*****************************************************************************/
-                        /* Basic Helper C Macros */
-/*****************************************************************************/
-
-/* Combo helper */
-#define ZMK_COMBO(NAME, TIMEOUT_MS, KEY_POSITIONS, BINDINGS) \
-    NAME { \
-        timeout-ms = <TIMEOUT_MS>; \
-        key-positions = <KEY_POSITIONS>; \
-        bindings = <BINDINGS>; \
-    };
-
-/* Convert NAME parameters into a ZMK label string */
-#define STRINGIFY(x) #x
-
-/* Create a ZMK behavior without having to specify the name three times */
-#define ZMK_BEHAVIOR(NAME, ...) \
-    behaviors { \
-        NAME: NAME { \
-            label = STRINGIFY(ZB_ ## NAME); \
-            __VA_ARGS__ \
-        }; \
-    };
-
-/* Hold-Tap helper */
-#define HOLD_TAP(NAME, ...) \
-    ZMK_BEHAVIOR(NAME, \
-        compatible = "zmk,behavior-hold-tap"; \
-        #binding-cells = <2>; \
-        __VA_ARGS__ \
-    )
-
-/* Balanced Hold-Tap for home row mods and thumb layer keys */
-#define BALANCED_HOLD_TAP(NAME, ...) \
-    HOLD_TAP(NAME, \
-        flavor = "balanced";  /* Fast hold behavior */ \
-        __VA_ARGS__ \
-    )
-
-/* Mod-Morph helper */
-#define MOD_MORPH(NAME, STANDARD, MORPHED, MODS) \
-    ZMK_BEHAVIOR(NAME, \
-        compatible = "zmk,behavior-mod-morph"; \
-        #binding-cells = <0>; \
-        bindings = <STANDARD>, <MORPHED>; \
-        mods = <(MODS)>; \
-    )
-
-/* Mod-Morph that sends another key when Alt is held */
-#define ALT_MORPH(NAME, PRIMARY, ALTERNATE) \
-    MOD_MORPH(NAME, PRIMARY, ALTERNATE, MOD_LALT|MOD_RALT)
-
-/* Mod-Morph that sends another key when Shift is held */
-#define SHIFT_MORPH(NAME, LOWER, UPPER) \
-    MOD_MORPH(NAME, LOWER, UPPER, MOD_LSFT|MOD_RSFT)
-
-/* Wrap ZMK_MACRO to avoid needing to specify Macro node */
-#define ZMKMACRO(NAME, ...) \
-    macros { \
-        ZMK_MACRO(NAME, __VA_ARGS__) \
-    };
-
-/* Instant key press Macro helper */
-#define FAST_MACRO(NAME, BINDINGS) \
-    ZMKMACRO(NAME, \
-        tap-ms = <0>; \
-        wait-ms = <0>; \
-        bindings = <BINDINGS>; \
-    )
 
 /*****************************************************************************/
                             /* Home Row Mods */
@@ -132,20 +54,6 @@
                          36   37   38          39   40   41                   \
     /*                 ├────┼────┼────┤      ├────┼────┼────┤              */ \
    
-/* "Timerless" home row mod Hold-Tap using defined timers */
-#define HOME_ROW_MOD(NAME, KEY_POSITIONS) \
-    BALANCED_HOLD_TAP(NAME, \
-        tapping-term-ms = <HOME_ROW_MODS_TAPPING_TERM_MS>;  /* Mouse usage */ \
-        quick-tap-ms = <HOME_ROW_MODS_QUICK_TAP_MS>;  /* Typing cool down */ \
-        global-quick-tap;  /* Lockout when typing quickly */ \
-        hold-trigger-key-positions = <KEY_POSITIONS>;  /* Use other hand */ \
-        hold-trigger-on-release;  /* Enable chording mods */ \
-        bindings = <&kp>, <&kp>; \
-    )
-
-HOME_ROW_MOD(lh_hr_mt, RIGHT_HAND_KEYS THUMB_KEYS)  /* Left hand */
-HOME_ROW_MOD(rh_hr_mt, LEFT_HAND_KEYS THUMB_KEYS)  /* Right hand */
-
 
 / {
 	 behaviors {
@@ -159,13 +67,16 @@ HOME_ROW_MOD(rh_hr_mt, LEFT_HAND_KEYS THUMB_KEYS)  /* Right hand */
 				bindings = <&kp>, <&kp>;
 			};
 			
-			 hm: homerow_mods {
+			lh_hm: left_hand_homerow_mods {
 				compatible = "zmk,behavior-hold-tap";
-				label = "HOMEROW_MODS";
+				label = "LEFT_HAND_HOMEROW_MODS";
 				#binding-cells = <2>;
-				tapping-term-ms = <175>;
-				quick-tap-ms = <150>;
-				flavor = "tap-preferred";
+				tapping-term-ms = <300>;
+				quick-tap-ms = <250>;
+				global-quick-tap;
+				flavor = "balanced";
+				hold-trigger-key-positions = RIGHT_HAND_KEYS THUMB_KEYS
+				hold-trigger-on-release;
 				bindings = <&kp>, <&kp>;
 			};
 		};
