@@ -207,7 +207,7 @@
 			<&macro_tap &sl_sentence_case SENTENCE_CASE>;
 		};
 		ralt_sentence_case: ralt_sentence_case {
-			label = "enter_sentence_case";
+			label = "ralt_sentence_case";
 			compatible = "zmk,behavior-macro";
 			#binding-cells = <0>;
 			wait-ms = <0>;
