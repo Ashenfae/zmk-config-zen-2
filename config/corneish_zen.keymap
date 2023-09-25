@@ -20,6 +20,7 @@
   };
 };
 
+
 /*****************************************************************************/
                                 /* Timers */
 /*****************************************************************************/
@@ -28,6 +29,16 @@
 
 /* Cool down after typing before home row mods can be used */
 #define HOME_ROW_MODS_QUICK_TAP_MS 250
+
+/*****************************************************************************/
+                        /* Basic Helper C Macros */
+/*****************************************************************************/
+/* Balanced Hold-Tap for home row mods and thumb layer keys */
+#define BALANCED_HOLD_TAP(NAME, ...) \
+    HOLD_TAP(NAME, \
+        flavor = "balanced";  /* Fast hold behavior */ \
+        __VA_ARGS__ \
+    )
 
 /*****************************************************************************/
                             /* Home Row Mods */
