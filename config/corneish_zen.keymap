@@ -69,7 +69,6 @@
 			flavor = "tap-preferred";
 			bindings = <&kp>, <&kp>;
 		};
-
 		lh_hm: left_hand_homerow_mods {
 			compatible = "zmk,behavior-hold-tap";
 			label = "LEFT_HAND_HOMEROW_MODS";
@@ -81,8 +80,7 @@
 			hold-trigger-key-positions = <RIGHT_HAND_KEYS THUMB_KEYS>;
 			hold-trigger-on-release;
 			bindings = <&kp>, <&kp>;
-		};
-			
+		};	
 		rh_hm: right_hand_homerow_mods {
 			compatible = "zmk,behavior-hold-tap";
 			label = "RIGHT_HAND_HOMEROW_MODS";
@@ -94,18 +92,21 @@
 			hold-trigger-key-positions = <LEFT_HAND_KEYS THUMB_KEYS>;
 			hold-trigger-on-release;
 			bindings = <&kp>, <&kp>;
+			
+		};
+		sl_sentence_case: sl_sentence_case {
+			compatible = "zmk,behavior-sticky-key";
+			label = "SL_SENTENCE_CASE";
+			#binding-cells = <1>; 
+			release-after-ms = <6000>;  /* Release if no key is pressed */ 
+			bindings = <&mo>; 
+			quick-release;  /* Release as soon as another key is pressed */ 
+			/delete-property/ ignore-modifiers;  /* Mods release Sticky Layer */ 
 		};
 	};
 	
 	macros {
-		 zero: zero{
-		label = "zero";
-	            compatible = "zmk,behavior-macro";
-	            #binding-cells = <0>;
-	            wait-ms = <0>;
-	            tap-ms = <0>;
-	            bindings = <&kp KP_N0 &kp KP_N0>;
-	        };
+		
 	};
 	
 	keymap {
