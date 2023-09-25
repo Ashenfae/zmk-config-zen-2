@@ -33,6 +33,17 @@
 /*****************************************************************************/
                         /* Basic Helper C Macros */
 /*****************************************************************************/
+/* Convert NAME parameters into a ZMK label string */
+#define STRINGIFY(x) #x
+
+/* Create a ZMK behavior without having to specify the name three times */
+#define ZMK_BEHAVIOR(NAME, ...) \
+    behaviors { \
+        NAME: NAME { \
+            label = STRINGIFY(ZB_ ## NAME); \
+            __VA_ARGS__ \
+        }; \
+
 /* Balanced Hold-Tap for home row mods and thumb layer keys */
 #define BALANCED_HOLD_TAP(NAME, ...) \
     HOLD_TAP(NAME, \
