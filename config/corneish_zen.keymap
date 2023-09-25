@@ -20,10 +20,6 @@
   };
 };
 
-&mt {
-    tapping-term-ms = <150>;
-};
-
 / {
 	 behaviors {
 			ht: hold_tap {
