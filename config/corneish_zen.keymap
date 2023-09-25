@@ -66,17 +66,7 @@
 				flavor = "tap-preferred";
 				bindings = <&kp>, <&kp>;
 			};
-			
-			hm: homerow_mods {
-				compatible = "zmk,behavior-hold-tap";
-				label = "HOMEROW_MODS";
-				#binding-cells = <2>;
-				tapping-term-ms = <175>;
-				quick-tap-ms = <150>;
-				flavor = "tap-preferred";
-				bindings = <&kp>, <&kp>;
-			};
-			
+
 			lh_hm: left_hand_homerow_mods {
 				compatible = "zmk,behavior-hold-tap";
 				label = "LEFT_HAND_HOMEROW_MODS";
@@ -86,6 +76,19 @@
 				global-quick-tap;
 				flavor = "balanced";
 				hold-trigger-key-positions = <RIGHT_HAND_KEYS THUMB_KEYS>;
+				hold-trigger-on-release;
+				bindings = <&kp>, <&kp>;
+			};
+			
+			rh_hm: right_hand_homerow_mods {
+				compatible = "zmk,behavior-hold-tap";
+				label = "RIGHT_HAND_HOMEROW_MODS";
+				#binding-cells = <2>;
+				tapping-term-ms = <300>;
+				quick-tap-ms = <250>;
+				global-quick-tap;
+				flavor = "balanced";
+				hold-trigger-key-positions = <LEFT_HAND_KEYS THUMB_KEYS>;
 				hold-trigger-on-release;
 				bindings = <&kp>, <&kp>;
 			};
@@ -102,7 +105,7 @@
 //                     | CAPS | PAD | ROW |   | SPC | BKSP | ENTER |
                         bindings = <
    &kp ESC &kp Q &kp W &kp E &ht LS(RA(R)) R &kp T    	&kp Y &kp U &kp I    &ht RA(G) O   &kp P     &kp LBKT
-   &kp NUBS &hm LALT A &hm LCTRL S &hm RALT D &hm LSHFT F &kp G   &kp H &hm LSHFT J &hm RALT K    &hm LCTRL L   &hm LALT SEMI  &kp SQT
+   &kp NUBS &lh_hm LALT A &lh_hm LCTRL S &lh_hm RALT D &lh_hm LSHFT F &kp G   &kp H &rh_hm LSHFT J &rh_hm RALT K    &rh_hm LCTRL L   &rh_hm LALT SEMI  &kp SQT
    &kp TAB &kp Z &kp X &kp C &kp V &kp B    	&ht RBKT N &ht RA(NUBS) M &kp COMMA &kp DOT &kp FSLH &kp BSLH
              &mt RALT CAPS &mo NUMPAD &mo NUMROW    	&kp SPACE  &ht DEL BSPC &kp ENTER
                         >;
@@ -132,7 +135,7 @@
 //                                    |CAPS | PAD | ROW |   | SPC | BKSP | ENTER |
                         bindings = <
    &kp F1    &kp F2 &kp F3     &kp F4     &kp F5   &kp F6    &kp F7 &kp F8        &kp F9        &kp F10   &kp F11 &kp F12
-   &kp GRAVE &hm LALT N1 &hm LCTRL N2     &hm RALT N3    &hm LSHFT N4   &kp N5    &kp N6 &hm LSHFT N7        &hm RALT N8        &hm LCTRL N9    &hm LALT N0  &kp MINUS
+   &kp GRAVE &lh_hm LALT N1 &lh_hm LCTRL N2     &lh_hm RALT N3    &lh_hm LSHFT N4   &kp N5    &kp N6 &rh_hm LSHFT N7        &rh_hm RALT N8        &rh_hm LCTRL N9    &rh_hm LALT N0  &kp MINUS
    &kp C_PREV &kp C_NEXT &kp C_PP &kp C_VOL_UP  &kp C_VOL_DN  &kp C_MUTE  &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3   &kp EQUAL
                                      &trans &trans &trans    &trans &trans &trans
 		 >;
