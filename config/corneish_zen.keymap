@@ -75,7 +75,7 @@
 			#binding-cells = <2>;
 			tapping-term-ms = <300>;
 			quick-tap-ms = <150>;
-			flavor = "balanced";
+			flavor = "hold-preferred";
 			hold-trigger-key-positions = <RIGHT_HAND_KEYS THUMB_KEYS>;
 			hold-trigger-on-release;
 			bindings = <&kp>, <&kp>;
@@ -85,9 +85,8 @@
 			label = "RIGHT_HAND_HOMEROW_MODS";
 			#binding-cells = <2>;
 			tapping-term-ms = <300>;
-			quick-tap-ms = <250>;
-			global-quick-tap;
-			flavor = "balanced";
+			quick-tap-ms = <150>;
+			flavor = "hold-preferred";
 			hold-trigger-key-positions = <LEFT_HAND_KEYS THUMB_KEYS>;
 			hold-trigger-on-release;
 			bindings = <&kp>, <&kp>;
