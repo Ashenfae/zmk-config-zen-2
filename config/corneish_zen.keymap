@@ -33,6 +33,15 @@
 /*****************************************************************************/
                         /* Basic Helper C Macros */
 /*****************************************************************************/
+
+/* Combo helper */
+#define ZMK_COMBO(NAME, TIMEOUT_MS, KEY_POSITIONS, BINDINGS) \
+    NAME { \
+        timeout-ms = <TIMEOUT_MS>; \
+        key-positions = <KEY_POSITIONS>; \
+        bindings = <BINDINGS>; \
+    };
+
 /* Convert NAME parameters into a ZMK label string */
 #define STRINGIFY(x) #x
 
@@ -43,12 +52,52 @@
             label = STRINGIFY(ZB_ ## NAME); \
             __VA_ARGS__ \
         }; \
+    };
+
+/* Hold-Tap helper */
+#define HOLD_TAP(NAME, ...) \
+    ZMK_BEHAVIOR(NAME, \
+        compatible = "zmk,behavior-hold-tap"; \
+        #binding-cells = <2>; \
+        __VA_ARGS__ \
+    )
 
 /* Balanced Hold-Tap for home row mods and thumb layer keys */
 #define BALANCED_HOLD_TAP(NAME, ...) \
     HOLD_TAP(NAME, \
         flavor = "balanced";  /* Fast hold behavior */ \
         __VA_ARGS__ \
+    )
+
+/* Mod-Morph helper */
+#define MOD_MORPH(NAME, STANDARD, MORPHED, MODS) \
+    ZMK_BEHAVIOR(NAME, \
+        compatible = "zmk,behavior-mod-morph"; \
+        #binding-cells = <0>; \
+        bindings = <STANDARD>, <MORPHED>; \
+        mods = <(MODS)>; \
+    )
+
+/* Mod-Morph that sends another key when Alt is held */
+#define ALT_MORPH(NAME, PRIMARY, ALTERNATE) \
+    MOD_MORPH(NAME, PRIMARY, ALTERNATE, MOD_LALT|MOD_RALT)
+
+/* Mod-Morph that sends another key when Shift is held */
+#define SHIFT_MORPH(NAME, LOWER, UPPER) \
+    MOD_MORPH(NAME, LOWER, UPPER, MOD_LSFT|MOD_RSFT)
+
+/* Wrap ZMK_MACRO to avoid needing to specify Macro node */
+#define ZMKMACRO(NAME, ...) \
+    macros { \
+        ZMK_MACRO(NAME, __VA_ARGS__) \
+    };
+
+/* Instant key press Macro helper */
+#define FAST_MACRO(NAME, BINDINGS) \
+    ZMKMACRO(NAME, \
+        tap-ms = <0>; \
+        wait-ms = <0>; \
+        bindings = <BINDINGS>; \
     )
 
 /*****************************************************************************/
