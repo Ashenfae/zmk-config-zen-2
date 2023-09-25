@@ -116,6 +116,7 @@
                 
                 SentenceCase {
 	    label = "SENTENCE_CASE";
+	     bindings = <
   &trans &kp LS(Q) &kp LS(W) &kp LS(E) &kp LS(R) &kp LS(T)   &kp LS(Y) &kp LS(U) &kp LS(I) &trans &kp LS(P) &kp LS(LBKT)
   &kp LS(NUBS) &kp LS(A) &kp LS(S) &kp LS(D) &kp LS(F) &trans  &kp LS(H) &kp LS(J) &kp LS(K) &kp LS(L) &kp LS(SEMI) &trans
             &trans &trans &trans         &kp K_CANCEL &trans &trans
@@ -124,6 +125,7 @@
 	
                 SentenceALT {
 	    label = "SENTENCE_ALT";
+	     bindings = <
   &trans &kp LS(Q) &kp LS(W) &kp LS(E) &kp LS(R) &kp LS(T)   &kp LS(Y) &kp LS(U) &kp LS(I) &trans &kp LS(P) &kp LS(LBKT)
   &kp LS(NUBS) &kp LS(A) &kp LS(S) &kp LS(D) &kp LS(F) &trans  &kp LS(H) &kp LS(J) &kp LS(K) &kp LS(L) &kp LS(SEMI) &trans
             &trans &trans &trans         &kp K_CANCEL &trans &trans
@@ -132,6 +134,7 @@
 	
                 EndSentence {
 	    label = "END_SENTENCE";
+	     bindings = <
   &trans &kp LS(Q) &kp LS(W) &kp LS(E) &kp LS(R) &kp LS(T)   &kp LS(Y) &kp LS(U) &kp LS(I) &trans &kp LS(P) &kp LS(LBKT)
   &kp LS(NUBS) &kp LS(A) &kp LS(S) &kp LS(D) &kp LS(F) &trans  &kp LS(H) &kp LS(J) &kp LS(K) &kp LS(L) &kp LS(SEMI) &trans
             &trans &trans &trans         &kp K_CANCEL &trans &trans
