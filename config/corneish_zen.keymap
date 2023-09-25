@@ -61,6 +61,16 @@
                          36   37   38          39   40   41                   \
     /*                 ├────┼────┼────┤      ├────┼────┼────┤              */ \
    
+/* "Timerless" home row mod Hold-Tap using defined timers */
+#define HOME_ROW_MOD(NAME, KEY_POSITIONS) \
+    BALANCED_HOLD_TAP(NAME, \
+        tapping-term-ms = <HOME_ROW_MODS_TAPPING_TERM_MS>;  /* Mouse usage */ \
+        quick-tap-ms = <HOME_ROW_MODS_QUICK_TAP_MS>;  /* Typing cool down */ \
+        global-quick-tap;  /* Lockout when typing quickly */ \
+        hold-trigger-key-positions = <KEY_POSITIONS>;  /* Use other hand */ \
+        hold-trigger-on-release;  /* Enable chording mods */ \
+        bindings = <&kp>, <&kp>; \
+    )
 
 
 / {
