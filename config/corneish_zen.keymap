@@ -96,6 +96,20 @@
 				bindings = <&kp>, <&kp>;
 			};
 		};
+/ {
+	 macros {
+	 
+	 zero: zero{
+            label = "zero";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&kp KP_N0 &kp KP_N0>;
+        };	
+		
+		
+		};
 	keymap {
                 compatible = "zmk,keymap";
 
