@@ -10,9 +10,11 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
-    chosen {
-      zmk,matrix_transform = &five_column_transform;
-    };
+  chosen {
+    zmk,matrix_transform = &default_transform;
+    //zmk,matrix_transform = &five_column_transform;
+  };
+};
     
     #define XXX &none
     #define ___ &trans
@@ -69,7 +71,7 @@
                         display-name = "Base";
                         bindings = <
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp Q         &kp W         &kp E         &kp R         &kp T           &kp Y         &kp U         &kp I         &kp O         &kp P      &none  
+&none    &kp Q         &kp W         &kp E         &kp R         &kp T           &kp Y         &kp U         &kp I         &kp O         &kp P      &none  
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 &none    HOME_A        HOME_S        HOME_D        &kp F         &kp G           &kp H         &kp J         HOME_K        HOME_L        HOME_SMCLN &none
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
