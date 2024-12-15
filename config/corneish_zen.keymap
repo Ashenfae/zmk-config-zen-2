@@ -23,6 +23,17 @@
   };
 };
 
+&sk {
+     	release-after-ms = <200>;
+	quick-release;
+	ignore-modifiers;
+    };
+
+&sl {
+        release-after-ms = <60000>;
+        /delete-property/ ignore-modifiers;
+    };
+
 
 
 /*****************************************************************************/
@@ -31,9 +42,9 @@
 
 /* Left hand key positions for use with right hand mods */
 #define LEFT_HAND_KEYS \
-    /*    ┌────┬────┬────┬────┬────┐                                       */ \
+    /*    ┌────┬────┬────┬────┬────┬────┐                                  */ \
             0    1    2    3    4     5                                       \
-    /*    ├────┼────┼────┼────┼────┼────┐                                  */ \
+    /*    ├────┼────┼────┼────┼────┼────┤                                  */ \
             12   13   14   15   16   17                                      \
     /*    ├────┼────┼────┼────┼────┼────┤                                  */ \
             24   25   26   27   28   29                                       \
@@ -42,9 +53,9 @@
 
 /* Right hand key positions for use with left hand mods */
 #define RIGHT_HAND_KEYS \
-    /*                                          ┌────┬────┬────┬────┬────┐ */ \
+    /*                                     ┌────┬────┬────┬────┬────┬────┐ */ \
                                              6     7    8    9   10   11      \
-    /*                                     ┌────┼────┼────┼────┼────┼────┤ */ \
+    /*                                     ├────┼────┼────┼────┼────┼────┤ */ \
                                              18   19   20   21   22   23      \
     /*                                     ├────┼────┼────┼────┼────┼────┤ */ \
                                              30   31   32   33   34   35      \
@@ -64,9 +75,9 @@
 			compatible = "zmk,behavior-hold-tap";
 			label = "HOLD_TAP";
 			#binding-cells = <2>;
-			tapping-term-ms = <150>;
+			tapping-term-ms = <200>;
 			quick_tap_ms = <0>;
-			flavor = "tap-preferred";
+			flavor = "balanced";
 			bindings = <&kp>, <&kp>;
 		};
 		lh_hm: left_hand_homerow_mods {
@@ -91,22 +102,72 @@
 			hold-trigger-key-positions = <LEFT_HAND_KEYS THUMB_KEYS>;
 			hold-trigger-on-release;
 			bindings = <&kp>, <&kp>;
-			
 		};
-		sl_sentence_case: sl_sentence_case {
-			compatible = "zmk,behavior-sticky-key";
-			label = "SL_SENTENCE_CASE";
-			#binding-cells = <1>; 
-			release-after-ms = <60000>;  /* Release if no key is pressed */ 
-			bindings = <&mo>; 
-			quick-release;  /* Release as soon as another key is pressed */ 
-			/delete-property/ ignore-modifiers;  /* Mods release Sticky Layer */ 
+		ht2: ht2 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&kp>;
+            flavor = "tap-preferred";
+            quick-tap-ms = <200>;
+        };
+        tt: tt {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            bindings = <&hl0>, <&to>;
+            flavor = "balanced";
+            quick-tap-ms = <125>;
+        };
+        zt: zt {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            bindings = <&zero>, <&kp>;
+            flavor = "balanced";
+            quick-tap-ms = <200>;
 		};
+			ralt_case: ralt_case {
+			compatible = "zmk,behavior-hold-tap";
+			label = "RALT_CASE";
+			#binding-cells = <2>;
+			flavor = "balanced";
+			tapping-term-ms = <150>;
+			quick-tap-ms = <200>;
+			bindings = <&ralt_sentence_case_hold>, <&ralt_sentence_case>;
+		};
+		hl: hl {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            bindings = <&mo>, <&to>;
+            flavor = "balanced";
+        };
+		 lh_rac: lh_rac {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            bindings = <&ralt_sentence_case_hold>, <&kp>;
+            flavor = "balanced";
+            quick-tap-ms = <150>;
+            hold-trigger-key-positions = <RIGHT_HAND_KEYS THUMB_KEYS>;
+            hold-trigger-on-release;
+        };
+		rh_rac: rh_rac {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            bindings = <&ralt_sentence_case_hold>, <&kp>;
+            flavor = "balanced";
+            quick-tap-ms = <150>;
+            hold-trigger-key-positions = <LEFT_HAND_KEYS THUMB_KEYS>;
+            hold-trigger-on-release;
+        };
 		excumflex: excumflex {
 			compatible = "zmk,behavior-mod-morph";
 			label = "EXCUMFLEX";
 			#binding-cells = <0>;
-			bindings = <&kp SQT>, <&excl_end_sentence>;
+			bindings = <&kp C>, <&excl_end_sentence>;
 			mods = <(MOD_LSFT)>;
 		};
 		questionstrophe: questionstrophe {
@@ -128,25 +189,16 @@
 			compatible = "zmk,behavior-mod-morph";
 			label = "DOT_TWO";
 			#binding-cells = <0>;
-			bindings = <&kp RA(V)>, <&ellips>;
+			bindings = <&kp RA(N)>, <&ellips>;
 			mods = <(MOD_LSFT)>;
 		};
 		ellips: ellips {
 			compatible = "zmk,behavior-mod-morph";
 			label = "ELLIPS";
 			#binding-cells = <0>;
-			bindings = <&kp LS(V)>, <&ellips_end_sentence>;
+			bindings = <&kp LS(N)>, <&ellips_end_sentence>;
 			mods = <(MOD_RALT)>;
-		};
-		ralt_case: ralt_case {
-			compatible = "zmk,behavior-hold-tap";
-			label = "RALT_CASE";
-			#binding-cells = <2>;
-			flavor = "balanced";
-			tapping-term-ms = <150>;
-			quick-tap-ms = <200>;
-			bindings = <&ralt_sentence_case_hold>, <&ralt_sentence_case>;
-		};		
+		};	
 	};
 	
 	macros {
@@ -156,10 +208,10 @@
 			#binding-cells = <0>;
 			wait-ms = <0>;
 			tap-ms = <0>;
-			bindings = <&macro_press &kp V>,
+			bindings = <&macro_press &kp N>,
 			<&macro_pause_for_release>,
-			<&macro_release &kp V>,
-			<&macro_tap &sl_sentence_case END_SENTENCE>;
+			<&macro_release &kp N>,
+			<&macro_tap &sl END_SENTENCE>;
 		};
 		question_end_sentence: question_end_sentence {
 			label = "question_end_sentence";
@@ -170,7 +222,7 @@
 			bindings = <&macro_press &kp LS(O)>,
 			<&macro_pause_for_release>,
 			<&macro_release &kp LS(O)>,
-			<&macro_tap &sl_sentence_case END_SENTENCE>;
+			<&macro_tap &sl END_SENTENCE>;
 		};
 		excl_end_sentence: excl_end_sentence {
 			label = "excl_end_sentence";
@@ -178,10 +230,10 @@
 			#binding-cells = <0>;
 			wait-ms = <0>;
 			tap-ms = <0>;
-			bindings = <&macro_press &kp LS(SQT)>,
+			bindings = <&macro_press &kp LS(C)>,
 			<&macro_pause_for_release>,
-			<&macro_release &kp LS(SQT)>,
-			<&macro_tap &sl_sentence_case END_SENTENCE>;
+			<&macro_release &kp LS(C)>,
+			<&macro_tap &sl END_SENTENCE>;
 		};
 		ellips_end_sentence: ellips_end_sentence {
 			label = "ellips_end_sentence";
@@ -189,10 +241,10 @@
 			#binding-cells = <0>;
 			wait-ms = <0>;
 			tap-ms = <0>;
-			bindings = <&macro_press &kp LS(RA(V))>,
+			bindings = <&macro_press &kp LS(RA(N))>,
 			<&macro_pause_for_release>,
-			<&macro_release &kp LS(RA(V))>,
-			<&macro_tap &sl_sentence_case END_SENTENCE>;
+			<&macro_release &kp LS(RA(N))>,
+			<&macro_tap &sl END_SENTENCE>;
 		};
 		space_sentence_case: space_sentence_case {
 			label = "space_sentence_case";
@@ -201,7 +253,7 @@
 			wait-ms = <0>;
 			tap-ms = <0>;
 			bindings = <&macro_tap &kp SPACE>,
-			<&macro_tap &sl_sentence_case SENTENCE_CASE>;
+			<&macro_tap &sl SENTENCE_CASE>;
 		};
 		enter_sentence_case: enter_sentence_case {
 			label = "enter_sentence_case";
@@ -212,7 +264,7 @@
 			bindings = <&macro_press &kp ENTER>,
 			<&macro_pause_for_release>,
 			<&macro_release &kp ENTER>,
-			<&macro_tap &sl_sentence_case SENTENCE_CASE>;
+			<&macro_tap &sl SENTENCE_CASE>;
 		};
 		ralt_sentence_case: ralt_sentence_case {
 			label = "ralt_sentence_case";
@@ -220,7 +272,7 @@
 			#binding-cells = <0>;
 			wait-ms = <0>;
 			tap-ms = <0>;
-			bindings = <&macro_tap &sl_sentence_case SENTENCE_ALT>;
+			bindings = <&macro_tap &sl SENTENCE_ALT>;
 		};
 		ralt_sentence_case_hold: ralt_sentence_case_hold {
 			label = "ralt_sentence_case_hold";
@@ -229,12 +281,41 @@
 			wait-ms = <0>;
 			tap-ms = <0>;
 			bindings = <&macro_press &kp RALT>,
-			<&macro_tap &sl_sentence_case SENTENCE_CASE>,
+			<&macro_tap &sl SENTENCE_ALT>,
 			<&macro_pause_for_release>,
 			<&macro_release &kp RALT>;
 		};
-
+        hl0: hl0 {
+            label = "&HL0";
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            tap-ms = <0>;
+            wait-ms = <0>;
+            bindings = <&to 0>
+                , <&macro_pause_for_release>
+                , <&macro_param_1to1>
+                , <&to 4>;
+        };
+        euro: euro {
+            label = "&EURO";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            tap-ms = <0>;
+            wait-ms = <0>;
+            bindings = <&kp LS(SPACE)>
+                , <&kp LS(GRAVE)>;
+        };
+       zero: zero {
+            label = "&ZERO";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            tap-ms = <0>;
+            wait-ms = <0>;
+            bindings = <&kp KP_N0>
+                , <&kp KP_N0>;
+        };
 	};
+	
 	combos { 
 		compatible = "zmk,combos";
 
@@ -263,36 +344,48 @@
                 default_layer {
                         label = "DEFAULT";
 // ------------------------------------------------------------------------------------------
-//    | ESC |  À  |  É  |  O  |  Q  |  B  |   |  F  |  D   |  L  |  ’  |  J  |  W  |
-//    |  Ê  |  A  |  I  |  E  |  U  |  ,  |   |  P  |  T   |  S  |  R  |  N  |  ^  |
-//    | TAB |  Z  |  Y  |  È  |  .  |  K  |   | G/Q | C/Ç  |  M  |  H  |  V  |  X  |
-//                     | CAPS | PAD | ROW |   | SPC | BKSP | ENTER |
+//    |PSCRN|  X  |  C  |  O  |  P  |  W  |   |  J  |  M   |  D  |  ’  |  Y  |  À  |
+//    |  Ê  |  A  |  S  |  E  |  N  |  F  |   |  L  |  R   |  T  |  I  |  U  |  K  |
+//    | TAB |  È  |  Q  |  ^  |  V  |  B  |   |  .  | H/Q  | G/Q |  ,  |  É  |  Z  |
+//                     |CP/ESC| PAD | ROW |   | SPC | BKSP | ENTER |
                         bindings = <
-   &kp ESC &kp Q &kp W &kp E &ht LS(RA(R)) R &kp T    	&kp Y &kp U &kp I    &questionstrophe   &kp P     &kp LBKT
-   &kp NUBS &lh_hm LALT A &lh_hm LCTRL S &lh_hm RALT D &lh_hm LSHFT F &kp G   &kp H &rh_hm LSHFT J &rh_hm RALT K    &rh_hm LCTRL L   &rh_hm LALT SEMI  &excumflex
-   &kp TAB &kp Z &kp X &kp C &dotone &kp B    	&ht RBKT N &ht RA(NUBS) M &kp COMMA &kp DOT &kp FSLH &kp BSLH
-             &kp CAPS &mo NUMPAD &mo NUMROW    	&kp SPACE  &ht DEL BSPC &kp ENTER
+// ╭────────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮  ╭────────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮
+    &kp PSCRN 		 &kp Q	 		 &kp W	         &kp E 			 &kp R			 &kp T    			&kp Y 			 &kp U 			 &kp I    		 &questionstrophe &kp P     	 &kp LBKT
+// ├────────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤  ├────────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
+    &kp NUBS 		 &lh_hm LALT A	 &lh_hm LCTRL S	 &lh_hm RALT D	 &lh_hm LSHFT F	 &kp G   			&kp H 			 &rh_hm LSHFT J	 &rh_hm RALT K	 &rh_hm LCTRL L	 &rh_hm LALT SEMI &kp GRAVE
+// ├────────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤  ├────────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
+    &kp TAB 		 &kp Z			 &ht LS(RA(X)) X &excumflex		 &kp V			 &kp B		    	&dotone 		 &ht RBKT M		 &ht RA(NUBS) COMMA	&kp DOT		 &kp FSLH		 &kp BSLH
+// ╰────────────────┴───────────────┴───────────────┴───────────────┴───────────────┴───────────────╯  ╰────────────────┴───────────────┴───────────────┴───────────────┴───────────────┴───────────────╯
+													 &ht ESC CAPS	 &hl 4 4		 &hl 5 5	    	&ht2 RSHFT SPACE  &ht DEL BSPC	 &kp ENTER
                         >;
                 };
                 
                 SentenceCase {
 	    label = "SENTENCE_CASE";
 	     bindings = <
-  &trans &kp LS(Q) &kp LS(W) &kp LS(E) &kp LS(R) &kp LS(T)   &kp LS(Y) &kp LS(U) &kp LS(I) &trans &kp LS(P) &kp LS(LBKT)
-  &kp LS(NUBS) &kp LS(A) &kp LS(S) &kp LS(D) &kp LS(F) &trans  &kp LS(H) &kp LS(J) &kp LS(K) &kp LS(L) &kp LS(SEMI) &trans
-  &trans &kp LS(Z) &kp LS(X) &kp LS(C) &trans &kp LS(B)   &ht LS(RBKT) LS(N) &ht LS(RA(NUBS)) LS(M) &kp LS(COMMA) &kp LS(DOT) &kp LS(FSLH) &kp LS(BSLH)
-            &ralt_case &trans &trans         &kp K_CANCEL &trans &enter_sentence_case
-                       >;
+// ╭────────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮  ╭────────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮
+    &trans 		 	 &kp RS(Q)	 	 &kp RS(W)       &kp RS(E)		 &kp RS(R)		 &kp RS(T)  		&kp RS(Y) 		 &kp RS(U) 		 &kp RS(I)    	 &trans			 &kp RS(P)     	 &kp RS(LBKT)
+// ├────────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤  ├────────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
+    &kp RS(NUBS) &lh_hm LALT RS(A) &lh_hm LCTRL RS(S) &lh_rac 0 RS(D) &lh_hm LSHFT RS(F) &kp RS(G) 	&kp RS(H)	 &rh_hm LSHFT RS(J) &rh_rac 0 RS(K) &rh_hm LCTRL RS(L) &rh_hm LALT RS(SEMI) &kp RS(GRAVE)
+// ├────────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤  ├────────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
+    &trans 		 	 &kp RS(Z)		 &ht LS(RA(X)) RS(X) &trans	 	 &kp RS(V)		 &kp RS(B)		    &trans	  &ht RS(RBKT) RS(M) &ht RS(RA(NUBS)) RS(COMMA) &trans	 &kp RS(FSLH)	 &kp RS(BSLH)
+// ╰────────────────┴───────────────┴───────────────┴───────────────┴───────────────┴───────────────╯  ╰────────────────┴───────────────┴───────────────┴───────────────┴───────────────┴───────────────╯
+													 &trans			 &trans			 &trans	    		&kp K_CANCEL  	 &trans			 &enter_sentence_case
+                        >;
 	};
 	
                 SentenceALT {
 	    label = "SENTENCE_ALT";
 	     bindings = <
-  &trans &kp LS(RA(Q)) &kp LS(W) &kp LS(RA(E)) &kp LS(R) &kp LS(T)   &kp LS(Y) &kp LS(U) &kp LS(I) &trans &kp LS(P) &kp LS(LBKT)
-  &kp LS(RA(NUBS)) &kp LS(RA(A)) &kp LS(S) &kp LS(D) &kp LS(F) &trans  &kp LS(H) &kp LS(J) &kp LS(K) &kp LS(L) &kp LS(SEMI) &trans
-  &trans &kp LS(Z) &kp LS(X) &kp LS(C) &trans &kp LS(B)   &ht LS(RBKT) LS(N) &ht LS(RA(NUBS)) LS(M) &kp LS(COMMA) &kp LS(DOT) &kp LS(FSLH) &kp LS(BSLH)
-            &trans &trans &trans         &kp K_CANCEL &trans &trans 
-                       >;
+// ╭────────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮  ╭────────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮
+    &trans 		 	 &kp RA(Q)	 	 &kp RA(W)       &kp RS(RA(E))		 &kp RA(R)		 &kp RA(T)  	&kp RA(Y) 		 &kp RA(U) 		 &kp RA(I)    	 &kp RA(O)		 &kp RA(P)     	 &kp RS(RA(LBKT))
+// ├────────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤  ├────────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
+    &kp RA(NUBS) &lh_hm LALT RS(RA(A)) &lh_hm LCTRL RA(S) &lh_rac 0 RA(D) &lh_hm LSHFT RA(F) &kp RA(G) 	&kp RA(H)	 &rh_hm LSHFT RA(J) &rh_rac 0 RA(K) &rh_hm LCTRL RA(L) &rh_hm LALT RS(RA(SEMI)) &kp RA(GRAVE)
+// ├────────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤  ├────────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
+    &trans 		 	 &kp RA(Z)		 &kp X			 &kp RA(C)	 	 &kp RA(V)		 &kp RA(B)		    &kp RA(N)	&ht RA(RBKT) RA(M) &ht RS(RA(NUBS)) RA(COMMA) &kp RA(DOT) &kp RA(FSLH) &kp RA(BSLH)
+// ╰────────────────┴───────────────┴───────────────┴───────────────┴───────────────┴───────────────╯  ╰────────────────┴───────────────┴───────────────┴───────────────┴───────────────┴───────────────╯
+													 &trans			 &trans			 &trans	    		&kp K_CANCEL  	 &trans			 &enter_sentence_case
+                        >;
 	};
 	
                 EndSentence {
@@ -308,15 +401,19 @@
                 numpad_layer {
                         label = "NUMPAD";
 // -----------------------------------------------------------------------------------------
-//    | ESC | PUP | HOME|  ↑  | END |   B   |   |  =  |  7   |  8  |  9  |  0  |  (  |
-//    |  Ê  | PDN |  ←  |  ↓  |  →  |   ,   |   |  *  |  4   |  5  |  6  |  /  |  )  |
-//    | TAB | WIN | CUT | CPY | PST | PSCRN |   |  +  |  1   |  2  |  3  |  -  |  .  |
+//    | ESC | PUP | HOME|  ↑  | END |NUMLCK |   |  =  |  7   |  8  |  9  |  €  |  :  |
+//    |     | PDN |  ←  |  ↓  |  →  |       |   |  *  |  4   |  5  |  6  |  /  |  (  |
+//    | TAB | PREV| NEXT| PLAY| VOL |MUTE/✓|   |  +  |  1/0  |2/00 | 3/. | -/, | )/% |
 //                        | CAPS| PAD | ROW |   | SPC | BKSP | ENTER |
                         bindings = < 
-   &trans  &kp PG_UP &kp HOME  &kp UP       &kp END   &trans       &kp KP_EQUAL    &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_N0    &kp N4
-   &trans &kp PG_DN &kp LEFT  &kp DOWN     &kp RIGHT &trans   &kp KP_ASTERISK &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_SLASH  &kp N7
-   &trans &kp LWIN  &kp LS(DEL) &kp LC(INSERT) &kp LS(INSERT) &kp PSCRN     &kp KP_PLUS    &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_MINUS &kp KP_DOT
-                                         &trans &trans &trans    &trans &trans &trans
+// ╭────────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮  ╭────────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮
+    &trans  		 &kp PG_UP 		 &kp HOME  		 &kp UP       	 &kp END   		 &&kp KP_NUM        &kp MINUS	     &kp KP_N7		 &kp KP_N8		 &kp KP_N9		 &euro   		 &kp RA(N)
+// ├────────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤  ├────────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
+    &none			 &kp PG_DN		 &kp LEFT		 &kp DOWN    	 &kp RIGHT		 &none				&kp KP_MULTIPLY	 &kp KP_N4		 &kp KP_N5		 &kp KP_N6		 &kp KP_SLASH	 &kp N4
+// ├────────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤  ├────────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
+    &ht RS(TAB) TAB	 &kp C_PREV		 &kp C_NEXT		 &kp C_PP	&ht C_VOL_DN C_VOL_UP &ht2 C_MUTE RA(B)	&kp KP_PLUS		 &ht KP_N0 KP_N1 &zt 0 KP_N2	 &ht KP_DOT KP_N3 &ht DOT KP_MINUS &ht EQUAL N7
+// ╰────────────────┴───────────────┴───────────────┴───────────────┴───────────────┴───────────────╯  ╰────────────────┴───────────────┴───────────────┴───────────────┴───────────────┴───────────────╯
+													 &trans			 &tt 4 0		 &trans   			 &trans			 &trans 		 &ht LCTRL RET
                         >;
                 };
 
@@ -325,14 +422,18 @@
 // -----------------------------------------------------------------------------------------
 //                 |  F1  |  F2 |  F3 |  F4 |  F5 |  F6 |   |  F7 |  F8 |  F9 | F10 | F11 | F12 |
 //                 |  $   |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |  =  |
-//                 | PREV| NEXT| PLAY | VUP | VDWN| MUTE|   |BTCLR| BT 1| BT 2| BT 3| BT 4|  %  |
+//                 |      |     |     |     |     |     |   |BTCLR| BT 1| BT 2| BT 3| BT 4|  %  |
 //                                    |CAPS | PAD | ROW |   | SPC | BKSP | ENTER |
                         bindings = <
-   &kp F1    &kp F2 &kp F3     &kp F4     &kp F5   &kp F6    &kp F7 &kp F8        &kp F9        &kp F10   &kp F11 &kp F12
-   &kp GRAVE &lh_hm LALT N1 &lh_hm LCTRL N2     &lh_hm RALT N3    &lh_hm LSHFT N4   &kp N5    &kp N6 &rh_hm LSHFT N7        &rh_hm RALT N8        &rh_hm LCTRL N9    &rh_hm LALT N0  &kp MINUS
-   &kp C_PREV &kp C_NEXT &kp C_PP &kp C_VOL_UP  &kp C_VOL_DN  &kp C_MUTE  &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3   &kp EQUAL
-                                     &trans &trans &trans    &trans &trans &trans
-		 >;
+// ╭────────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮  ╭────────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮
+	&kp F1			 &kp F2			 &kp F3			 &kp F4			 &kp F5			 &kp F6				 &kp F7			 &kp F8			 &kp F9			 &kp F10		 &kp F11		 &kp F12
+// ├────────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤  ├────────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
+    &kp GRAVE		 &lh_hm LALT N1	 &lh_hm LCTRL N2 &lh_hm RALT N3	 &lh_hm LSHFT N4 &kp N5				 &kp N6			 &rh_hm LSHFT N7 &rh_hm RALT N8	 &rh_hm LCTRL N9  &rh_hm LALT N0  &kp MINUS
+// ├────────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤  ├────────────────┼───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
+    &none			 &none			 &none			 &none			  &none			  &none				 &bt BT_CLR		 &bt BT_SEL 0	 &bt BT_SEL 1	 &bt BT_SEL 2	 &bt BT_SEL 3	 &kp EQUAL
+// ╰────────────────┴───────────────┴───────────────┴───────────────┴───────────────┴───────────────╯  ╰────────────────┴───────────────┴───────────────┴───────────────┴───────────────┴───────────────╯
+													 &trans			 &tt 5 0		 &trans   			 &trans			 &trans 		 &ht LCTRL RET
+						>;
                 };
 
         };
