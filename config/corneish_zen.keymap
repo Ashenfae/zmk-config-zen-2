@@ -394,7 +394,7 @@
   &trans &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans &trans
   &trans &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans &trans
   &trans &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans &trans
-            &trans &trans &trans         &space_sentence_case &trans &enter_sentence_case
+            &trans &trans &trans          &trans &space_sentence_case &enter_sentence_case
                        >;
 	};
 				
