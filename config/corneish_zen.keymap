@@ -80,31 +80,6 @@
             bindings = <&kp>, <&kp>;
         };
 
-        lh_hm: left_hand_homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LEFT_HAND_HOMEROW_MODS";
-            #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            quick-tap-ms = <150>;
-            flavor = "balanced";
-            hold-trigger-key-positions = <RIGHT_HAND_KEYS THUMB_KEYS>;
-            hold-trigger-on-release;
-            bindings = <&kp>, <&kp>;
-        };
-
-        rh_hm: right_hand_homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            label = "RIGHT_HAND_HOMEROW_MODS";
-            #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            quick-tap-ms = <150>;
-            global-quick-tap;
-            flavor = "balanced";
-            hold-trigger-key-positions = <LEFT_HAND_KEYS THUMB_KEYS>;
-            hold-trigger-on-release;
-            bindings = <&kp>, <&kp>;
-        };
-
         ht_tap: ht2 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -155,30 +130,6 @@
             hold-while-undecided;
             hold-while-undecided-linger;
             label = "HOLD_LAYER";
-        };
-
-        lh_rac: lh_rac {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            bindings = <&ralt_sentence_case_hold>, <&kp>;
-
-            flavor = "balanced";
-            quick-tap-ms = <150>;
-            hold-trigger-key-positions = <RIGHT_HAND_KEYS THUMB_KEYS>;
-            hold-trigger-on-release;
-        };
-
-        rh_rac: rh_rac {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            bindings = <&ralt_sentence_case_hold>, <&kp>;
-
-            flavor = "balanced";
-            quick-tap-ms = <150>;
-            hold-trigger-key-positions = <LEFT_HAND_KEYS THUMB_KEYS>;
-            hold-trigger-on-release;
         };
 
         exclcomma: exclcomma {
@@ -254,16 +205,6 @@
             label = "ESC_RALT";
             #binding-cells = <0>;
             bindings = <&sk RIGHT_ALT>, <&kp ESCAPE>;
-        };
-
-        lquote: lquote {
-            compatible = "zmk,behavior-mod-morph";
-            label = "LQUOTE";
-            bindings = <&quote_sentence_case>, <&kp NUMBER_2>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL|MOD_RCTL)>;
-            keep-mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
         layer_entercase: layer_entercase {
@@ -481,7 +422,7 @@
             bindings = <
 &trans            &kp RA(Q)      &kp RA(W)      &kp RS(RA(E))  &kp RA(R)  &kp RA(T)    &kp RA(Y)  &kp RA(U)                    &kp RA(I)                            &kp RA(O)    &kp RA(P)              &kp RS(RA(LBKT))
 &kp RA(RS(NUBS))  &kp RA(RS(A))  &kp RA(LCTRL)  &kp RA(D)      &kp RA(F)  &kp RA(G)    &kp RA(H)  &kp RA(J)                    &kp RA(K)                            &kp RA(L)    &kp RA(RS(SEMICOLON))  &kp RA(SQT)
-&trans            &kp RA(Z)      &kp X          &kp RA(C)      &kp RA(V)  &kp RA(B)    &kp RA(N)  &ht_balanced RA(RBKT) RA(M)  &ht_balanced RS(RA(NUBS)) RA(COMMA)  &kp RA(DOT)  &kp RA(FSLH)           &kp RA(BSLH)
+&trans            &kp RA(Z)      &kp RA(X)      &kp RA(C)      &kp RA(V)  &kp RA(B)    &kp RA(N)  &ht_balanced RA(RBKT) RA(M)  &ht_balanced RS(RA(NUBS)) RA(COMMA)  &kp RA(DOT)  &kp RA(FSLH)           &kp RA(BSLH)
                                                 &trans         &trans     &trans       &trans     &kp K_CANCEL                 &layer_entercase 5 0
             >;
         };
@@ -531,12 +472,5 @@
         };
     };
 
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-
-        test {
-            if-layers = <1 5>;
-            then-layer = <6>;
-        };
-    };
+    conditional_layers { compatible = "zmk,conditional-layers"; };
 };
