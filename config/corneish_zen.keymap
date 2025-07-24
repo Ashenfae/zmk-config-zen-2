@@ -244,6 +244,34 @@
             #binding-cells = <0>;
             bindings = <&kp SPACE>, <&kp ESCAPE>;
         };
+
+        mintap: mintap {
+            compatible = "zmk,behavior-tap-dance";
+            label = "MINTAP";
+            #binding-cells = <0>;
+            bindings = <&ht_balanced DOT KP_MINUS>, <&min>;
+        };
+
+        divtap: divtap {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DIVTAP";
+            #binding-cells = <0>;
+            bindings = <&kp KP_DIVIDE>, <&div>;
+        };
+
+        multap: multap {
+            compatible = "zmk,behavior-tap-dance";
+            label = "MULTAP";
+            #binding-cells = <0>;
+            bindings = <&kp KP_MULTIPLY>, <&mult>;
+        };
+
+        plustap: plustap {
+            compatible = "zmk,behavior-tap-dance";
+            label = "PLUSTAP";
+            #binding-cells = <0>;
+            bindings = <&kp KP_PLUS>, <&plus>;
+        };
     };
 
     macros {
@@ -363,6 +391,42 @@
 
             label = "QUOTE_SENTENCE_CASE";
         };
+
+        div: div {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp RA(X)>, <&macro_tap>, <&kp KP_DIVIDE>;
+
+            label = "DIV";
+        };
+
+        plus: plus {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp RA(X)>, <&macro_tap>, <&kp KP_PLUS>;
+
+            label = "PLUS";
+        };
+
+        mult: mult {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp RA(X)>,
+                <&macro_tap>,
+                <&kp KP_MULTIPLY>;
+
+            label = "MULT";
+        };
+
+        min: min {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp RA(X)>, <&macro_tap>, <&kp KP_MINUS>;
+
+            label = "MIN";
+        };
     };
 
     combos {
@@ -401,7 +465,7 @@
 
             bindings = <
 &mt LEFT_ALT PSCRN          &kp Q  &kp W                &kp E     &kp R      &kp T        &kp Y                  &kp U                &kp I                   &questionstrophe  &kp P          &kp LBKT
-&mt LCTRL NUBS              &kp A  &kp S                &kp D     &kp F      &kp G        &kp H                  &kp J                &kp K                   &kp L             &kp SEMICOLON  &kp SQT
+&ht_tap LCTRL NUBS          &kp A  &kp S                &kp D     &kp F      &kp G        &kp H                  &kp J                &kp K                   &kp L             &kp SEMICOLON  &kp SQT
 &mt LEFT_GUI K_APPLICATION  &kp Z  &ht_tap LS(RA(X)) X  &kp C     &kp V      &kp B        &dotone                &ht_tap RBKT M       &ht_tap RA(NUBS) COMMA  &exclcomma        &kp FSLH       &kp BSLH
                                                         &pad_tab  &capshift  &esc_ralt    &ht_balanced DEL BSPC  &ht_tap RSHFT SPACE  &row_enter
             >;
@@ -447,10 +511,10 @@
             //                        |CP/ESC| PAD | ROW |   |BKSP |  SPC | ENTER |
 
             bindings = <
-&trans                    &kp PG_UP   &kp HOME    &kp UP     &kp END                         &kp KP_NUM              &kp MINUS        &kp KP_N7                 &kp KP_N8    &kp KP_N9                  &euro                      &kp RA(N)
-&trans                    &kp PG_DN   &kp LEFT    &kp DOWN   &kp RIGHT                       &none                   &kp KP_MULTIPLY  &kp KP_N4                 &kp KP_N5    &kp KP_N6                  &kp KP_SLASH               &ht_balanced RA(EQUAL) NUMBER_4
-&ht_balanced RS(TAB) TAB  &kp C_PREV  &kp C_NEXT  &kp C_PP   &ht_balanced C_VOL_DN C_VOL_UP  &ht_tap C_MUTE RA(B)    &kp KP_PLUS      &ht_balanced KP_N0 KP_N1  &zt 0 KP_N2  &ht_balanced KP_DOT KP_N3  &ht_balanced DOT KP_MINUS  &ht_balanced EQUAL N7
-                                                  &base_pad  &trans                          &esc_space              &trans           &space_tap                &trans
+&trans                    &kp PG_UP   &kp HOME    &kp UP     &kp END                         &kp KP_NUM              &kp MINUS  &kp KP_N7                 &kp KP_N8    &kp KP_N9                  &euro    &kp RA(N)
+&trans                    &kp PG_DN   &kp LEFT    &kp DOWN   &kp RIGHT                       &none                   &multap    &kp KP_N4                 &kp KP_N5    &kp KP_N6                  &divtap  &ht_balanced RA(EQUAL) NUMBER_4
+&ht_balanced RS(TAB) TAB  &kp C_PREV  &kp C_NEXT  &kp C_PP   &ht_balanced C_VOL_DN C_VOL_UP  &ht_tap C_MUTE RA(B)    &plustap   &ht_balanced KP_N0 KP_N1  &zt 0 KP_N2  &ht_balanced KP_DOT KP_N3  &mintap  &ht_balanced EQUAL N7
+                                                  &base_pad  &trans                          &esc_space              &trans     &space_tap                &trans
             >;
         };
 
