@@ -464,10 +464,10 @@
             //                     |CP/ESC| PAD | ROW |   |BKSP |  SPC | ENTER |
 
             bindings = <
-&mt LEFT_ALT PSCRN          &kp Q  &kp W                &kp E     &kp R      &kp T        &kp Y                  &kp U                &kp I                   &questionstrophe  &kp P          &kp LBKT
-&ht_tap LCTRL NUBS          &kp A  &kp S                &kp D     &kp F      &kp G        &kp H                  &kp J                &kp K                   &kp L             &kp SEMICOLON  &kp SQT
-&mt LEFT_GUI K_APPLICATION  &kp Z  &ht_tap LS(RA(X)) X  &kp C     &kp V      &kp B        &dotone                &ht_tap RBKT M       &ht_tap RA(NUBS) COMMA  &exclcomma        &kp FSLH       &kp BSLH
-                                                        &pad_tab  &capshift  &esc_ralt    &ht_balanced DEL BSPC  &ht_tap RSHFT SPACE  &row_enter
+&mt LEFT_ALT PSCRN            &kp Q  &kp W                &kp E     &kp R      &kp T        &kp Y                  &kp U                &kp I                   &questionstrophe  &kp P          &kp K_APPLICATION
+&ht_tap LCTRL LEFT_BRACKET    &kp A  &kp S                &kp D     &kp F      &kp G        &kp H                  &kp J                &kp K                   &kp L             &kp SEMICOLON  &kp SQT
+&ht_tap LEFT_GUI NON_US_BSLH  &kp Z  &ht_tap LS(RA(X)) X  &kp C     &kp V      &kp B        &dotone                &ht_tap RBKT M       &ht_tap RA(NUBS) COMMA  &exclcomma        &kp FSLH       &kp BSLH
+                                                          &pad_tab  &capshift  &esc_ralt    &ht_balanced DEL BSPC  &ht_tap RSHFT SPACE  &row_enter
             >;
         };
 
