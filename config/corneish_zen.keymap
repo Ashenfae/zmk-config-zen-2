@@ -464,18 +464,18 @@
             //                     |CP/ESC| PAD | ROW |   |BKSP |  SPC | ENTER |
 
             bindings = <
-&ht_tap LEFT_ALT NON_US_BACKSLASH  &kp Q  &kp W                &kp E     &kp R      &kp T        &kp Y                  &kp U                &kp I                   &questionstrophe  &kp P          &kp LEFT_BRACKET
-&ht_tap LCTRL BACKSLASH            &kp A  &kp S                &kp D     &kp F      &kp G        &kp H                  &kp J                &kp K                   &kp L             &kp SEMICOLON  &kp SQT
-&ht_tap LEFT_GUI PRINTSCREEN       &kp Z  &ht_tap LS(RA(X)) X  &kp C     &kp V      &kp B        &dotone                &ht_tap RBKT M       &ht_tap RA(NUBS) COMMA  &exclcomma        &kp FSLH       &kp EQUAL
-                                                               &pad_tab  &capshift  &esc_ralt    &ht_balanced DEL BSPC  &ht_tap RSHFT SPACE  &row_enter
+&ht_tap LEFT_ALT BACKSLASH    &kp Q  &kp W                &kp E     &kp R      &kp T        &kp Y                  &kp U                &kp I                   &questionstrophe  &kp P          &kp LEFT_BRACKET
+&ht_tap LCTRL NON_US_BSLH     &kp A  &kp S                &kp D     &kp F      &kp G        &kp H                  &kp J                &kp K                   &kp L             &kp SEMICOLON  &kp SQT
+&ht_tap LEFT_GUI PRINTSCREEN  &kp Z  &ht_tap LS(RA(X)) X  &kp C     &kp V      &kp B        &dotone                &ht_tap RBKT M       &ht_tap RA(NUBS) COMMA  &exclcomma        &kp FSLH       &kp EQUAL
+                                                          &pad_tab  &capshift  &esc_ralt    &ht_balanced DEL BSPC  &ht_tap RSHFT SPACE  &row_enter
             >;
         };
 
         SentenceCase {
             label = "SENTENCE_CASE";
             bindings = <
-&ht_tap LEFT_ALT RS(NON_US_BACKSLASH)  &kp RS(Q)  &kp RS(W)                &kp RS(E)  &kp RS(R)  &kp RS(T)         &kp RS(Y)  &kp RS(U)               &kp RS(I)                       &trans     &kp RS(P)          &kp RS(LEFT_BRACKET)
-&ht_tap LCTRL RS(BACKSLASH)            &kp RS(A)  &kp RS(S)                &kp RS(D)  &kp RS(F)  &kp RS(G)         &kp RS(H)  &kp RS(J)               &kp RS(K)                       &kp RS(L)  &kp RS(SEMICOLON)  &kp RS(SQT)
+&ht_tap LEFT_ALT RS(BACKSLASH)         &kp RS(Q)  &kp RS(W)                &kp RS(E)  &kp RS(R)  &kp RS(T)         &kp RS(Y)  &kp RS(U)               &kp RS(I)                       &trans     &kp RS(P)          &kp RS(LEFT_BRACKET)
+&ht_tap LCTRL RS(NON_US_BSLH)          &kp RS(A)  &kp RS(S)                &kp RS(D)  &kp RS(F)  &kp RS(G)         &kp RS(H)  &kp RS(J)               &kp RS(K)                       &kp RS(L)  &kp RS(SEMICOLON)  &kp RS(SQT)
 &ht_tap LEFT_WIN RS(NON_US_BACKSLASH)  &kp RS(Z)  &ht_tap LS(RA(X)) RS(X)  &trans     &kp RS(V)  &kp RS(B)         &trans     &ht_tap RS(RBKT) RS(M)  &ht_tap RS(RA(NUBS)) RS(COMMA)  &trans     &kp RS(FSLH)       &trans
                                                                            &trans     &trans     &ralt_case 0 0    &trans     &kp K_CANCEL            &layer_entercase 5 0
             >;
@@ -484,10 +484,10 @@
         SentenceALT {
             label = "SENTENCE_ALT";
             bindings = <
-&ht_tap LEFT_ALT RS(LA(NON_US_BACKSLASH))  &kp RA(Q)      &kp RA(W)      &kp RS(RA(E))  &kp RA(R)  &kp RA(T)    &kp RA(Y)  &kp RA(U)                    &kp RA(I)                            &kp RA(O)    &kp RA(P)              &kp RA(EQUAL)
-&ht_tap LCTRL RS(RA(BACKSLASH))            &kp RA(RS(A))  &kp RA(LCTRL)  &kp RA(D)      &kp RA(F)  &kp RA(G)    &kp RA(H)  &kp RA(J)                    &kp RA(K)                            &kp RA(L)    &kp RA(RS(SEMICOLON))  &kp RA(SQT)
-&trans                                     &kp RA(RS(Z))  &kp RA(X)      &kp RA(C)      &kp RA(V)  &kp RA(B)    &kp RA(N)  &ht_balanced RA(RBKT) RA(M)  &ht_balanced RS(RA(NUBS)) RA(COMMA)  &kp RA(DOT)  &kp RA(FSLH)           &kp RA(BSLH)
-                                                                         &trans         &trans     &trans       &trans     &kp K_CANCEL                 &layer_entercase 5 0
+&ht_tap LEFT_ALT RS(LA(BACKSLASH))  &kp RA(Q)      &kp RA(W)      &kp RS(RA(E))  &kp RA(R)  &kp RA(T)    &kp RA(Y)  &kp RA(U)                    &kp RA(I)                            &kp RA(O)    &kp RA(P)              &kp RA(EQUAL)
+&ht_tap LCTRL RS(RA(NON_US_BSLH))   &kp RA(RS(A))  &kp RA(LCTRL)  &kp RA(D)      &kp RA(F)  &kp RA(G)    &kp RA(H)  &kp RA(J)                    &kp RA(K)                            &kp RA(L)    &kp RA(RS(SEMICOLON))  &kp RA(SQT)
+&trans                              &kp RA(RS(Z))  &kp RA(X)      &kp RA(C)      &kp RA(V)  &kp RA(B)    &kp RA(N)  &ht_balanced RA(RBKT) RA(M)  &ht_balanced RS(RA(NUBS)) RA(COMMA)  &kp RA(DOT)  &kp RA(FSLH)           &kp RA(BSLH)
+                                                                  &trans         &trans     &trans       &trans     &kp K_CANCEL                 &layer_entercase 5 0
             >;
         };
 
